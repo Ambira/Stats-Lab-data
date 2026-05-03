@@ -1,0 +1,157 @@
+Q1 — Frequency & Charts
+SPSS steps
+Q1a — Recode house value & frequency tables
+Step 1: Recode value of house
+Transform → Recode into Different Variables
+1. Select Value of House as input. Name output variable house_grp, click Change.
+2. Click Old and New Values. Use Range: 100–150 → 1, 150–200 → 2, 200–250 → 3, etc. Click Add after each. Continue → OK.
+3. In Variable View, add value labels: 1="100–150", 2="150–200", etc.
+Step 2: Frequency tables for Age Group, Education, Religion, Years in Company
+Analyze → Descriptive Statistics → Frequencies
+4. Move all four variables into Variable(s) box. Click OK.
+Conclusion: The frequency table shows count and percentage for each category. Identify the most common age group, education level, religion, and years-in-company group from the highest frequency row.
+SPSS steps
+Q1b — Histograms
+Graphs → Legacy Dialogs → Histogram
+1. Move one variable at a time (Age Group, Education, Religion, Years in Company) into the Variable box. Check Display normal curve. Click OK. Repeat for each.
+Conclusion: Describe shape (symmetric, positively or negatively skewed), central tendency, and spread seen in each histogram. If the bars roughly follow the normal curve overlay, the variable is approximately normally distributed.
+SPSS steps
+Q1c — Stem-and-leaf display
+Analyze → Descriptive Statistics → Explore
+1. Move Salary, Value of House, Distance from House to Work, Sick Days into Dependent List.
+2. Under Display select Both. Click Plots → ensure Stem-and-leaf is ticked. Continue → OK.
+Conclusion: Stem-and-leaf plots show actual data values while revealing the distribution shape. Note where data clusters, identify gaps or outliers (leaves far from the main stem), and compare the range across all four variables.
+Q2 — Descriptive Statistics
+SPSS steps
+Q2a — Descriptive statistics (all, male, female)
+All employees
+Analyze → Descriptive Statistics → Explore
+1. Move Salary, Value of House, Distance, Sick Days into Dependent List. Leave Factor List empty. Click OK.
+Split by gender
+2. Data → Split File → Organize output by groups. Move Gender into Groups Based On. Click OK.
+3. Repeat the Explore step above — output is now split by gender. Afterward reset: Data → Split File → Analyze all cases → OK.
+Conclusion: Compare mean, median, standard deviation, minimum, and maximum of each variable between male and female employees. Note which group shows higher averages or greater variability in salary, house value, distance, and sick days.
+SPSS steps
+Q2b — Box plots
+Graphs → Legacy Dialogs → Boxplot
+1. Choose Simple then Summaries of separate variables. Click Define.
+2. Move Salary, Value of House, Distance, Sick Days into Boxes Represent. Click OK.
+Conclusion: The box plot displays the median (middle line), IQR (box height), and outliers (dots beyond whiskers). Comment on skewness — if the median is closer to the bottom of the box, the distribution is positively skewed. Outliers should be noted by their case ID.
+SPSS steps
+Q2c — Coefficient of variation (CV) by gender
+Analyze → Descriptive Statistics → Descriptives
+1. Split file by gender (Data → Split File as above). Move Salary into Variables. Click Options → check Mean and Std Deviation. Continue → OK.
+2. Compute manually: CV = (Std Dev ÷ Mean) × 100. Do this for both male and female.
+Conclusion: The gender with the lower CV has more uniformly (consistently) distributed salaries. A lower CV means less relative spread around the mean — that group's salaries are closer together proportionally.
+Q3a — One-Sample Tests
+SPSS steps
+Q3a(I) — All employees: salary vs 75k and 50k
+Analyze → Compare Means → One-Sample T Test
+1. Move Salary into Test Variable(s). Set Test Value = 75. Click OK.
+2. Repeat with Test Value = 50.
+Conclusion (75k): If p < 0.05, reject H₀ — average salary differs significantly from 75 thousand dollars. If p ≥ 0.05, insufficient evidence to reject; 75k is a plausible mean.
+Conclusion (50k): Same logic. Since the sample mean is likely well above 50k, the test is expected to be highly significant (p < 0.05).
+SPSS steps
+Q3a(II) — 10% sample: salary vs 75k and 50k
+1. Select 10% sample: Data → Select Cases → Random Sample → Approximately 10%. Click Continue → OK.
+Analyze → Compare Means → One-Sample T Test
+2. Move Salary into Test Variable(s). Test with 75 then 50. Click OK each time.
+Conclusion: Same interpretation as Q3a(I). With a smaller sample, the test has less statistical power — you are less likely to detect a true difference. If p < 0.05, still reject H₀.
+SPSS steps
+Q3a(III) — 10% sample: house value vs 75k and 50k
+1. Keep the 10% random sample selected (or re-select as above).
+Analyze → Compare Means → One-Sample T Test
+2. Move Value of House into Test Variable(s). Test Value = 75, then 50. Click OK.
+Conclusion: If p < 0.05, average house value in the sample differs significantly from the test value. Interpret direction — if the sample mean exceeds the test value, house values tend to be higher than hypothesized.
+SPSS steps
+Q3a(IV) — Sick days, ID 1 to 25, test value = 10
+1. Data → Select Cases → If condition is satisfied. Enter: ID <= 25. Click Continue → OK.
+Analyze → Compare Means → One-Sample T Test
+2. Move Sick Days into Test Variable(s). Set Test Value = 10. Click OK.
+Conclusion: At α = 0.05, if p < 0.05 reject H₀ — average sick days for employees with ID 1–25 differ significantly from 10 days. If p ≥ 0.05, there is insufficient evidence to conclude the average differs from 10 days.
+Q3b — Two-Sample Tests
+SPSS steps
+Q3b(i) — Salary by gender (all employees)
+Analyze → Compare Means → Independent-Samples T Test
+1. Move Salary into Test Variable(s). Move Gender into Grouping Variable.
+2. Click Define Groups: Group 1 = 1 (Male), Group 2 = 2 (Female). Continue → OK.
+Conclusion: First check Levene's test — if p > 0.05 use "Equal Variances Assumed" row; if p < 0.05 use "Equal Variances Not Assumed" row. If the t-test p < 0.05, there is a significant difference in mean salary between male and female employees.
+SPSS steps
+Q3b(ii) — Salary by gender (ID 25 to 50)
+1. Data → Select Cases → If. Enter: ID >= 25 & ID <= 50. Continue → OK.
+2. Run Independent-Samples T Test exactly as in Q3b(i).
+Conclusion: Same interpretation as Q3b(i) but restricted to employees with IDs 25–50. Note if the result differs from the full sample and comment on the smaller subset size.
+SPSS steps
+Q3b(iii) — Sick days by gender (10% sample)
+1. Select 10% random sample: Data → Select Cases → Random Sample → 10%.
+Analyze → Compare Means → Independent-Samples T Test
+2. Move Sick Days into Test Variable(s). Move Gender into Grouping Variable. Define Groups: 1 and 2. Click OK.
+Conclusion: At α = 0.05, if p < 0.05 there is a significant difference in mean sick days between male and female employees. If p ≥ 0.05, no significant gender difference in sick days is found in this sample.
+Q3c — One-Way ANOVA
+SPSS steps
+Q3c(i) — Salary by education level
+Analyze → Compare Means → One-Way ANOVA
+1. Move Salary into Dependent List. Move Education Level into Factor.
+2. Click Post Hoc → check Tukey. Click Continue.
+3. Click Options → check Descriptive and Homogeneity of variance test. Continue → OK.
+Conclusion: If F-test p < 0.05, reject H₀ — at least one education group has a significantly different mean salary. Use Tukey post hoc results to identify which specific education groups differ from each other.
+SPSS steps
+Q3c(ii) — House value by number of bedrooms
+1. Move Value of House into Dependent List. Move Number of Bedrooms into Factor. Apply the same Post Hoc (Tukey) and Options settings as Q3c(i). Click OK.
+Conclusion: If F-test p < 0.05, the number of bedrooms significantly affects house value. Post hoc tests reveal which specific bedroom-count groups differ. Generally, more bedrooms correspond to higher house values.
+Q4 — Multiple Linear Regression
+SPSS steps
+Q4a — House value on salary & bedrooms
+Analyze → Regression → Linear
+1. Move Value of House into Dependent. Move Salary and Number of Bedrooms into Independent(s).
+2. Click Statistics → check: Estimates, Confidence intervals, Model fit, R squared change, Descriptives, Part and partial correlations, Collinearity diagnostics. Continue → OK.
+Prediction (salary=90, bedrooms=5)
+3. From the Coefficients table, read the Constant (B₀), B₁ for Salary, and B₂ for Bedrooms. Compute: Value = B₀ + B₁(90) + B₂(5). Result ≈ 351.7 thousand dollars.
+Correlation matrix
+Analyze → Correlate → Bivariate
+4. Move Value of House, Salary, Number of Bedrooms, Distance into Variables. Check Pearson. Click OK.
+Conclusion (prediction): An employee earning 90k with 5 bedrooms is expected to have a house worth approximately 351.7 thousand dollars.
+Conclusion (significance): Overall F p < 0.05 → model is statistically significant. Check individual predictor p-values — if p < 0.05, that predictor significantly contributes to house value.
+Conclusion (R² & correlations): R² ≈ 0.509 means salary and bedrooms together explain 50.9% of variation in house value. Salary (r = 0.557) and bedrooms (r = 0.685) both show significant positive relationships with house value. Distance (r = −0.127, p = 0.061) is not significant.
+SPSS steps
+Q4b — Salary on years in company, education & sick days
+Analyze → Regression → Linear
+1. Move Salary into Dependent. Move Years in Company, Education Level, Sick Days into Independent(s).
+2. Same Statistics options as Q4a. Continue → OK.
+Partial & zero-order correlations
+Analyze → Correlate → Bivariate
+3. Move Salary, Years in Company, Education Level, Sick Days into Variables. Check Pearson. Click OK. (Part and partial correlations also appear in the Regression Coefficients table under Statistics.)
+Conclusion (overall fit): F = 40.717, p < 0.05 → the regression model is statistically significant. Years in company and education level are significant predictors (p < 0.05); sick days are not significant.
+Conclusion (correlations): Years in company (r = 0.626, p < 0.001) and education (r = 0.390, p < 0.001) are significantly and positively correlated with salary. Sick days (r = 0.026, p = 0.375) show no significant relationship — sick days do not meaningfully predict salary.
+Q5 — Nonparametric Tests
+SPSS steps
+Q5a — Runs test (gender sequence)
+Analyze → Nonparametric Tests → Legacy Dialogs → Runs
+1. Move Gender into Test Variable List. Set Cut Point to Custom: 1.5 (splits male=1 from female=2). Click OK.
+Conclusion: If p < 0.05, the sequence of male and female employees is not random. If p ≥ 0.05, the sequence is in random order at the 5% significance level.
+SPSS steps
+Q5b — Binomial test (equal employment)
+Analyze → Nonparametric Tests → Legacy Dialogs → Binomial
+1. Move Gender into Test Variable List. Set Test Proportion = 0.5. Click OK.
+Conclusion: If p < 0.05, male and female are not equally employed. If p ≥ 0.05, there is no significant difference in proportion — equal employment cannot be rejected.
+SPSS steps
+Q5c — K-S test (house value: uniform?)
+Analyze → Nonparametric Tests → Legacy Dialogs → 1-Sample K-S
+1. Move Value of House into Test Variable List. Under Test Distribution check Uniform. Click OK.
+Conclusion: If p < 0.05, reject H₀ — house values are not uniformly distributed. If p ≥ 0.05, insufficient evidence to reject uniformity.
+SPSS steps
+Q5d — Mann-Whitney U (salary by pool)
+Analyze → Nonparametric Tests → Legacy Dialogs → 2 Independent Samples
+1. Move Salary into Test Variable List. Move Swimming Pool into Grouping Variable. Define Groups: 1 and 2. Ensure Mann-Whitney U is checked. Click OK.
+Conclusion: If p < 0.05, salary differs significantly between employees with and without a swimming pool. If p ≥ 0.05, no significant salary difference based on pool ownership.
+SPSS steps
+Q5e — Chi-square test (education vs years)
+Analyze → Descriptive Statistics → Crosstabs
+1. Move Education into Row(s), Years in Company into Column(s).
+2. Click Statistics → check Chi-square and Cramer's V. Continue → OK.
+Conclusion: If p < 0.05, there is a significant association between education level and years in the company. Cramer's V indicates the strength of that association (0–1 scale; closer to 1 = stronger).
+SPSS steps
+Q5f — Median test (distance by gender)
+Analyze → Nonparametric Tests → Legacy Dialogs → K Independent Samples
+1. Move Distance from House to Work into Test Variable List. Move Gender into Grouping Variable. Click Define Range: Min = 1, Max = 2. Check Median. Click OK.
+Conclusion: If p < 0.05, the median distance from house to work differs significantly between male and female employees. If p ≥ 0.05, distances are similar for both genders.

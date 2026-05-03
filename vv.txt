@@ -1,0 +1,739 @@
+CHAPTER 1: SAMPLING DISTRIBUTION & ESTIMATION
+
+Q: What is a population and a sample?
+Population is the complete set of all elements or individuals under study. Sample is a subset of the population selected for study. We study samples because studying the entire population is impractical, costly, and time-consuming.
+
+Q: What is sampling?
+Sampling is the process of selecting a subset (sample) from the population to make inferences about the whole population.
+Types:
+
+SRSWR — Simple Random Sampling With Replacement — same unit can be selected again
+SRSWOR — Simple Random Sampling Without Replacement — once selected, not returned
+
+
+Q: What is sampling distribution of the mean?
+The probability distribution of all possible sample means X̄ obtained by taking ALL possible samples of size n from a population.
+Key properties:
+
+Mean of sampling distribution = population mean → μ(X̄) = μ
+Variance (with replacement) = σ²/n
+Variance (without replacement) = (σ²/n) × [(N−n)/(N−1)]
+Standard Error = σ/√n
+
+The term (N−n)/(N−1) is called the finite population correction factor.
+
+Q: What is standard error? Why is it important?
+Standard error is the standard deviation of the sampling distribution of the mean.
+SE = σ/√n
+It measures how much sample means vary from sample to sample. Smaller SE means more precise estimates. As n increases, SE decreases — larger samples give more reliable estimates.
+
+Q: What is the Central Limit Theorem?
+If random samples of size n are drawn from ANY population with mean μ and finite variance σ², then as n increases, the sampling distribution of X̄ approaches a normal distribution with mean μ and standard error σ/√n, regardless of the shape of the original population.
+X̄ ~ N(μ, σ²/n) as n → ∞
+Z = (X̄ − μ) / (σ/√n)
+Practical rule: n ≥ 30 is generally sufficient.
+
+Q: What are the practical implications of CLT?
+
+Allows use of Z-tests even when population is not normal, as long as n ≥ 30
+Provides basis for constructing confidence intervals
+Justifies normal approximations in hypothesis testing
+Enables probability calculations for sample means using Z-tables
+Explains why sample means cluster around true population mean
+The larger n, the smaller SE, the more precise the estimate
+
+
+Q: What is inferential statistics?
+Using sample data to make conclusions, predictions, or decisions about a larger population.
+Two main tools:
+
+Estimation — using sample statistics to estimate population parameters
+Hypothesis testing — using sample data to test claims about population parameters
+
+Difference from descriptive statistics: descriptive only summarizes the data. Inferential goes beyond to make conclusions about the population.
+
+Q: What is point estimation?
+A single numerical value calculated from sample data used to estimate an unknown population parameter.
+Examples:
+
+X̄ estimates μ
+p̂ estimates p
+s² estimates σ²
+
+
+Q: What is interval estimation? What is a confidence interval?
+A range of values that is likely to contain the true population parameter with a specified level of confidence (1−α).
+CI for mean (σ known): X̄ ± Z(α/2) × σ/√n
+CI for mean (σ unknown, small n): X̄ ± t(α/2, n−1) × s/√n
+CI for proportion: p̂ ± Z(α/2) × √[p̂(1−p̂)/n]
+Interpretation of 95% CI:
+If we repeated sampling many times, 95% of all constructed intervals would contain the true parameter. It does NOT mean 95% probability that μ lies in this specific interval.
+
+Q: What are the Z-values you must know?
+
+90% CI → Z = 1.645
+95% CI → Z = 1.96
+96% CI → Z = 2.054
+98% CI → Z = 2.326
+99% CI → Z = 2.576
+
+
+Q: What is the confidence level?
+The probability (1−α) that the constructed interval contains the true population parameter. If α = 0.05, confidence level = 95%.
+
+Q: What are the properties of a good estimator?
+1. Unbiasedness: E(θ̂) = θ — expected value equals the true parameter. X̄ is unbiased for μ.
+2. Consistency: As n → ∞, θ̂ converges to θ. P(|θ̂ − θ| > ε) → 0.
+3. Efficiency: Among all unbiased estimators, has the minimum variance. Most precise estimator.
+4. Sufficiency: Uses all information in the sample relevant to estimating θ.
+
+Q: How do you determine sample size?
+For mean:
+n = (Z(α/2) × σ / E)²
+For proportion (p known):
+n = Z(α/2)² × p(1−p) / E²
+For proportion (p unknown, use p = 0.5):
+n = Z(α/2)² × 0.25 / E²
+Using Coefficient of Variation:
+n = (Z(α/2) × CV / E%)²
+Relationship with error:
+
+As E decreases (want smaller error), n increases
+As confidence level increases, n increases
+Doubling precision requires 4 times the sample size
+
+
+Q: What is sampling distribution of proportion?
+The probability distribution of all possible sample proportions p̂.
+μ(p̂) = p
+SE(p̂) = √[p(1−p)/n]
+For large n: p̂ ~ N(p, p(1−p)/n)
+
+
+CHAPTER 2: TESTING OF HYPOTHESIS
+
+Q: What is a statistical hypothesis?
+A statement or claim about a population parameter (mean, proportion, variance) that may or may not be true, tested using sample data.
+
+Q: What is null hypothesis and alternative hypothesis?
+Null Hypothesis (H₀): The default assumption — states no effect, no difference, or status quo. Assumed true until evidence suggests otherwise.
+Examples: H₀: μ = 50, H₀: p = 0.5, H₀: μ₁ = μ₂
+Alternative Hypothesis (H₁): Contradicts H₀ — what the researcher wants to prove.
+
+Two-tailed: H₁: μ ≠ μ₀
+Right-tailed: H₁: μ > μ₀
+Left-tailed: H₁: μ < μ₀
+
+
+Q: What are the steps in hypothesis testing?
+
+State H₀ and H₁
+Set significance level α (0.05 or 0.01)
+Choose appropriate test statistic (Z, t, χ², F)
+Compute test statistic from sample data
+Find critical value or p-value
+Decision: Reject H₀ if |test stat| > critical value OR p-value < α
+Conclusion in context of the problem
+
+
+Q: What is level of significance?
+The probability of committing a Type I error — rejecting H₀ when it is true. Denoted by α. Common values: 0.05 (5%) and 0.01 (1%).
+A smaller α means a stricter test but higher risk of Type II error.
+
+Q: What is Type I and Type II error?
+DecisionH₀ TrueH₀ FalseReject H₀Type I Error (α)Correct — PowerFail to Reject H₀Correct (1−α)Type II Error (β)
+Type I Error (α): Rejecting H₀ when it is actually true. False positive. Example: Concluding a drug works when it doesn't.
+Type II Error (β): Failing to reject H₀ when it is actually false. False negative. Example: Concluding a drug doesn't work when it actually does.
+Relationship: Decreasing α increases β. Only increasing n reduces both simultaneously.
+
+Q: What is the power of a test?
+Power = 1 − β = probability of correctly rejecting H₀ when it is false.
+A good test has high power. Power increases with:
+
+Larger sample size n
+Larger true difference from H₀
+Larger significance level α
+Smaller population variance σ²
+
+
+Q: What is p-value? How is it used?
+The p-value is the probability of obtaining a test statistic as extreme or more extreme than observed, assuming H₀ is true.
+Decision:
+
+p-value < α → Reject H₀ → statistically significant
+p-value ≥ α → Fail to reject H₀ → not statistically significant
+
+Small p-value = strong evidence against H₀.
+p-value is NOT the probability that H₀ is true.
+
+Q: What is the difference between Z-test and t-test?
+BasisZ-testt-testSample sizeLarge (n ≥ 30)Small (n < 30)Population SDKnown (σ)Unknown (use s)DistributionStandard normalt-distributiondfNot applicablen − 1ShapeFixed normalFlatter, heavier tailsAssumptionCLT appliesPopulation must be normal
+When n is large, t approaches Z. Z-test is a special case when df → ∞.
+
+Q: What is one-sample Z-test?
+Tests if population mean equals a hypothesized value when σ is known or n ≥ 30.
+Z = (X̄ − μ₀) / (σ/√n)
+Critical values: ±1.96 (5% two-tailed), ±2.576 (1% two-tailed), 1.645 (5% one-tailed)
+
+Q: What is one-sample t-test?
+Tests if population mean equals a hypothesized value when σ is unknown and n < 30.
+t = (X̄ − μ₀) / (s/√n), df = n−1
+Population must be normally distributed.
+
+Q: What is the two-sample independent t-test?
+Tests if means of two independent groups are significantly different.
+t = (X̄₁ − X̄₂) / [Sp√(1/n₁ + 1/n₂)], df = n₁+n₂−2
+Sp = √[(n₁−1)s₁² + (n₂−1)s₂²] / (n₁+n₂−2) — pooled SD
+Assumptions:
+
+Both populations normally distributed
+Independent samples
+Equal variances (σ₁² = σ₂²)
+σ unknown
+
+
+Q: What is paired t-test? When do you use it?
+Tests the mean of differences in matched pairs — same subjects measured twice.
+d_i = X₁ᵢ − X₂ᵢ (difference for each pair)
+d̄ = Σdᵢ/n
+Sd = √[Σ(dᵢ − d̄)²/(n−1)]
+t = d̄ / (Sd/√n), df = n−1
+Use when: before/after measurements, left/right hand, same person tested under two conditions.
+Key signal: "before and after", "same subjects", "matched pairs"
+
+Q: What is the Z-test for proportion?
+Tests if population proportion equals a hypothesized value.
+Z = (p̂ − p₀) / √[p₀(1−p₀)/n]
+p̂ = x/n (sample proportion)
+
+Q: What is Z-test for difference of two proportions?
+Tests if two population proportions are equal.
+p̂ = (x₁+x₂)/(n₁+n₂) — pooled proportion
+Z = (p̂₁ − p̂₂) / √[p̂(1−p̂)(1/n₁ + 1/n₂)]
+
+Q: What is F-test for equality of two variances?
+Tests if two populations have equal variances.
+F = s₁²/s₂² (put larger variance in numerator so F ≥ 1)
+df₁ = n₁−1, df₂ = n₂−1
+Used as preliminary test before two-sample t-test.
+
+Q: What is the linkage between confidence interval and hypothesis testing?
+They always give the same conclusion:
+
+If μ₀ falls INSIDE the (1−α)×100% CI → Fail to reject H₀ at level α
+If μ₀ falls OUTSIDE the CI → Reject H₀ at level α
+
+They are mathematically equivalent. The CI is the set of all values of μ₀ that would NOT be rejected by a two-tailed test at level α.
+
+
+CHAPTER 3: NON-PARAMETRIC TESTS
+
+Q: What is a non-parametric test?
+A test that does NOT require assumptions about the underlying population distribution — particularly normality. Works with ranks or categories instead of actual values. Also called distribution-free tests.
+
+Q: What is the need for non-parametric tests?
+
+Population distribution is unknown or non-normal
+Data is ordinal (ranks, ratings) or nominal (categories)
+Sample size is too small for CLT (n < 30)
+Data contains extreme outliers
+Data measured on different scales
+
+
+Q: Advantages of non-parametric over parametric?
+
+No distribution assumption required
+Applicable to ordinal and nominal data
+Works with small samples
+Less sensitive to outliers (rank-based)
+Simpler computations
+More flexible for different data types
+
+Disadvantages:
+
+Less statistical power
+Ignores actual magnitude of values
+Less efficient when normality holds
+Higher chance of Type II error
+
+
+Q: Difference between parametric and non-parametric?
+BasisParametricNon-parametricDistributionNormal requiredNone assumedData typeInterval/RatioOrdinal/Nominal alsoParametersMean, varianceMedian, distributionSample sizeLarge preferredSmall okayPowerHigher if assumptions holdLower but saferExamplesZ, t, ANOVA, FK-W, Mann-Whitney, Runs, Chi-square
+
+Q: What is chi-square test of independence?
+Tests whether two categorical variables are independent or associated.
+H₀: Variables are independent
+H₁: Variables are associated
+E = (Row total × Column total) / Grand total
+χ² = Σ(O−E)²/E
+df = (r−1)(c−1)
+Reject H₀ if χ²calc > χ²critical
+Conditions:
+
+Data must be frequencies (counts), not percentages
+Expected frequency in each cell ≥ 5
+Observations must be independent
+
+
+Q: What is the Kruskal-Wallis test?
+Non-parametric equivalent of one-way ANOVA. Tests whether 3 or more independent groups come from the same population (same median).
+H₀: All k populations are identical
+H₁: At least one population differs
+Steps:
+
+Combine all observations and rank from 1 (smallest) to N (largest)
+For ties, assign average rank
+Find rank sum Rⱼ for each group
+Compute H = [12/N(N+1)] × Σ(Rⱼ²/nⱼ) − 3(N+1)
+df = k−1, compare with χ² critical value
+
+When to use: 3+ groups, non-normal data, ordinal data, small samples.
+
+Q: What is Mann-Whitney U test?
+Non-parametric equivalent of two-sample t-test. Tests if two independent groups have the same distribution/median.
+U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁
+U₂ = n₁n₂ + n₂(n₂+1)/2 − R₂
+U = min(U₁, U₂)
+Verification: U₁ + U₂ = n₁ × n₂
+When to use: 2 independent groups, non-normal or ordinal data.
+
+Q: What is the Runs test?
+Tests whether a sequence of two types of observations is random.
+r = number of runs (consecutive sequence of same type)
+μr = 2n₁n₂/(n₁+n₂) + 1
+σr = √[2n₁n₂(2n₁n₂−n₁−n₂) / (n₁+n₂)²(n₁+n₂−1)]
+Z = (r − μr) / σr
+When to use: Sequence of two types (M/F, 0/1, H/T), testing for randomness or pattern.
+
+Q: When do you use each non-parametric test?
+SituationTest1 group, test randomness of sequenceRuns test2 independent groups, compare mediansMann-Whitney U3+ groups, compare distributionsKruskal-Wallis2 categorical variables, test associationChi-squareSame subjects, before/after, non-parametricWilcoxon signed-rank
+
+
+CHAPTER 4: MULTIPLE REGRESSION & CORRELATION
+
+Q: What is Multiple Linear Regression?
+A statistical technique that models the linear relationship between ONE dependent variable Y and TWO OR MORE independent variables X₁, X₂, ..., Xₖ.
+Model: Y = β₀ + β₁X₁ + β₂X₂ + ε
+Estimated: Ŷ = b₀ + b₁X₁ + b₂X₂
+Purpose:
+
+Predict Y for given X values
+Understand unique contribution of each predictor
+Measure combined effect of multiple factors
+Control for confounding variables
+
+
+Q: How do you fit the regression equation?
+Solve the normal equations simultaneously:
+ΣY = nb₀ + b₁ΣX₁ + b₂ΣX₂
+ΣX₁Y = b₀ΣX₁ + b₁ΣX₁² + b₂ΣX₁X₂
+ΣX₂Y = b₀ΣX₂ + b₁ΣX₁X₂ + b₂ΣX₂²
+Solve three equations for three unknowns: b₀, b₁, b₂.
+
+Q: How do you interpret b₁ and b₂?
+b₁: For every one unit increase in X₁, Y changes by b₁ units, keeping X₂ constant.
+b₂: For every one unit increase in X₂, Y changes by b₂ units, keeping X₁ constant.
+These are called partial regression coefficients — they measure the unique effect of each predictor after controlling for all other predictors.
+Positive b → X and Y move same direction.
+Negative b → X and Y move opposite directions.
+
+Q: What are the assumptions / conditions for error in MLR?
+Remember LINE:
+L — Linearity: Relationship between Y and each X is linear.
+I — Independence: Errors are independent of each other. No autocorrelation.
+N — Normality: ε ~ N(0, σ²). Errors normally distributed with mean zero.
+E — Equal variance (Homoscedasticity): Variance of errors is constant across all X values.
+Plus: No multicollinearity — independent variables are not perfectly correlated with each other.
+
+Q: What is R²? How do you interpret it?
+Coefficient of Multiple Determination.
+R² = SSR/SST = 1 − SSE/SST
+Range: 0 to 1.
+R² = 0.85 means 85% of variation in Y is explained by X₁ and X₂ together. Remaining 15% is unexplained.
+R² = 1 → perfect fit. R² = 0 → model explains nothing.
+Limitation: R² always increases when more predictors added, even useless ones.
+
+Q: What is Adjusted R²? Why is it needed?
+R² always increases when you add more variables, even useless ones. Adjusted R² penalizes for unnecessary predictors.
+R²adj = 1 − [(1−R²)(n−1) / (n−k−1)]
+
+Only increases if new variable genuinely improves the model
+Always ≤ R²
+Can be negative for very poor models
+Used to compare models with different numbers of predictors
+
+
+Q: What is the ANOVA table for regression?
+SourcedfSSMSFRegressionkSSRSSR/kMSR/MSEErrorn−k−1SSESSE/(n−k−1)—Totaln−1SST——
+SST = SSR + SSE
+F = MSR/MSE → test overall model significance
+Reject H₀ if F > F(α, k, n−k−1)
+
+Q: What is the standard error of estimate?
+Se = √MSE = √[SSE/(n−k−1)]
+Measures average distance between actual Y values and predicted Ŷ values. Smaller Se → better fitting model.
+
+Q: How do you test individual regression coefficients?
+H₀: βⱼ = 0 (predictor Xⱼ is not significant)
+H₁: βⱼ ≠ 0
+t = bⱼ / SE(bⱼ), df = n−k−1
+Reject H₀ if |t| > t(α/2, n−k−1)
+
+Q: What is partial correlation coefficient?
+Measures the linear relationship between X₁ and X₂ after removing the effect of X₃ from both variables.
+r₁₂.₃ = (r₁₂ − r₁₃·r₂₃) / √[(1−r₁₃²)(1−r₂₃²)]
+Ranges from −1 to +1.
+Shows the "pure" relationship between two variables after controlling for a third.
+
+Q: What is multiple correlation coefficient?
+Measures the strength of the linear relationship between dependent variable X₁ and the set of independent variables X₂ and X₃ together.
+R²₁.₂₃ = (r₁₂² + r₁₃² − 2r₁₂·r₁₃·r₂₃) / (1 − r₂₃²)
+Ranges from 0 to 1. R = 0 → no relationship. R = 1 → perfect.
+
+Q: What is multicollinearity?
+When two or more independent variables in MLR are highly correlated with each other.
+Effects:
+
+Inflates standard errors of regression coefficients
+Makes individual t-tests unreliable
+Coefficients become unstable — small changes in data cause large changes in coefficients
+R² remains high but individual coefficients are unreliable
+
+Detection: VIF (Variance Inflation Factor) > 10 indicates serious multicollinearity.
+
+
+CHAPTER 5: DESIGN OF EXPERIMENTS
+
+Q: What is Design of Experiments?
+Systematic planning, conducting, and analysis of controlled tests to evaluate which factors significantly affect a response variable. Goal is to identify cause-and-effect relationships efficiently with minimum resources.
+
+Q: What are the three basic principles of DOE?
+1. Replication: Repeating the experiment under same conditions.
+
+Estimates experimental error
+Increases precision
+Allows valid statistical testing
+Without replication, cannot separate treatment effect from random error
+
+2. Randomization: Random assignment of experimental units to treatments.
+
+Eliminates systematic bias
+Ensures statistical independence
+Satisfies independence assumption of tests
+Prevents any treatment from having unfair advantage
+
+3. Local Control (Blocking): Grouping similar units into homogeneous blocks.
+
+Controls a known source of variation (nuisance variable)
+Reduces experimental error
+Increases efficiency and power
+Variation between blocks removed from error term
+
+
+Q: What are the types of experimental designs?
+DesignNuisance variables controlledWhen to useCRDNoneAll units homogeneousRBDOne (blocking)One nuisance variableLSDTwo (rows + columns)Two nuisance variablesFactorialNone, but studies interactionsWhen interactions matter
+
+Q: What is CRD?
+Completely Randomized Design — simplest design where treatments are assigned completely randomly to all units. No blocking. Controls no extraneous variation.
+Used when: all units are homogeneous, only one factor studied.
+Mathematical model: Yᵢⱼ = μ + τⱼ + εᵢⱼ
+ANOVA table:
+SourcedfSSMSFBetween (Treatments)k−1SSBMSBMSB/MSWWithin (Error)N−kSSWMSW—TotalN−1SST——
+Advantage: Simple, flexible sample sizes.
+Disadvantage: All variation goes into error if units not homogeneous — less efficient than RBD.
+
+Q: What is RBD? State its assumptions.
+Randomized Block Design — experimental units grouped into homogeneous blocks to control one nuisance variable. Treatments randomly assigned within each block.
+Mathematical model: Yᵢⱼ = μ + βᵢ + τⱼ + εᵢⱼ
+(μ = overall mean, βᵢ = block effect, τⱼ = treatment effect)
+Assumptions:
+
+εᵢⱼ ~ N(0, σ²) — independently normally distributed
+Block and treatment effects are additive — NO interaction
+Each treatment appears exactly once in each block
+Units within a block are homogeneous
+Blocks represent a single nuisance variable
+
+ANOVA table:
+SourcedfSSMSFBlocksb−1SSBMSBMSB/MSETreatmentsk−1SSTMSTMST/MSEError(b−1)(k−1)SSEMSE—Totalbk−1SSTot——
+
+Q: What is the efficiency of RBD relative to CRD?
+Tells how much better RBD is compared to CRD — how many times more observations CRD would need to achieve the same precision as RBD.
+RE = [(b−1)MSB + b(k−1)MSE] / [(bk−1)MSE]
+
+RE > 1 → Blocking was effective, RBD more efficient
+RE = 1.50 → CRD needs 50% more observations to match RBD precision
+RE < 1 → Blocking was not helpful
+
+
+Q: What is LSD? State its merits and demerits.
+Latin Square Design — controls TWO nuisance variables (rows and columns) simultaneously. Each treatment appears exactly once in each row and exactly once in each column.
+Necessary conditions:
+
+rows = columns = treatments = p (forms p×p square)
+Minimum p = 3
+No interaction between rows, columns, treatments
+
+Mathematical model: Yᵢⱼₖ = μ + ρᵢ + γⱼ + τₖ + εᵢⱼₖ
+ANOVA table:
+SourcedfSSMSFRowsp−1SSRMSRMSR/MSEColumnsp−1SSCMSCMSC/MSETreatmentsp−1SSTMSTMST/MSEError(p−1)(p−2)SSEMSE—Totalp²−1SSTot——
+Merits:
+
+Controls two sources of variation simultaneously
+More efficient than CRD and RBD
+Fewer experimental units needed
+
+Demerits:
+
+Requires rows = columns = treatments — very restrictive
+Error df = (p−1)(p−2) is very small for p=3 (only 2 df)
+Assumes no interaction — may not always hold
+Impractical for large p
+
+
+Q: Why should LSD not have less than 3 treatments?
+At p = 2:
+df(error) = (p−1)(p−2) = (1)(0) = 0
+Zero error degrees of freedom means MSE cannot be calculated. Therefore F-statistic cannot be computed and no significance test is possible. So p must be at least 3.
+
+Q: What is the mathematical model for m×m LSD?
+Yᵢⱼₖ = μ + ρᵢ + γⱼ + τₖ + εᵢⱼₖ
+Where:
+
+μ = overall population mean
+ρᵢ = row i effect (i = 1,...,m)
+γⱼ = column j effect (j = 1,...,m)
+τₖ = treatment k effect (k = 1,...,m)
+εᵢⱼₖ ~ N(0, σ²) independently
+
+Constraints: Σρᵢ = 0, Σγⱼ = 0, Στₖ = 0
+
+Q: What is the correction factor in ANOVA?
+CF = T²/N where T = grand total of all observations, N = total number of observations.
+Used in computing all sums of squares:
+SST(total) = ΣΣXᵢⱼ² − CF
+SS(between) = Σ(Tⱼ²/nⱼ) − CF
+SS(within) = SST(total) − SS(between)
+
+Q: How do you compute ANOVA table for LSD?
+CF = T²/p²
+SS(total) = ΣΣXᵢⱼ² − CF
+SS(rows) = Σ(Rᵢ²/p) − CF (Rᵢ = row totals)
+SS(cols) = Σ(Cⱼ²/p) − CF (Cⱼ = column totals)
+SS(treat) = Σ(Tₖ²/p) − CF (Tₖ = treatment totals)
+SS(error) = SS(total) − SS(rows) − SS(cols) − SS(treat)
+
+
+CHAPTER 6: STOCHASTIC PROCESS
+
+Q: What is a stochastic process?
+A collection of random variables {X(t), t ∈ T} indexed by time parameter t, defined on a common probability space. It represents the evolution of a random system over time.
+Simply: a sequence of random variables evolving over time.
+
+Q: How are stochastic processes classified?
+State SpaceTimeNameExampleDiscreteDiscreteDiscrete-time Markov ChainWeather dailyDiscreteContinuousPoisson processPhone callsContinuousDiscreteTime seriesDaily stock priceContinuousContinuousBrownian motionParticle movement
+
+Q: What is a Markov chain?
+A stochastic process {Xₙ, n = 0,1,2,...} where the probability of transitioning to any future state depends ONLY on the current state, not on past states.
+Markov property (memoryless):
+P(Xₙ₊₁ = j | X₀, X₁,...,Xₙ) = P(Xₙ₊₁ = j | Xₙ = i) = pᵢⱼ
+
+Q: What are the basic notations of Markov chain?
+State space (S): Set of all possible states. Example: S = {Sunny, Rainy}
+One-step transition probability pᵢⱼ: Probability of going from state i to state j in one step. pᵢⱼ ≥ 0 and Σpᵢⱼ = 1 (each row sums to 1).
+Transition matrix P: n×n matrix of all transition probabilities.
+Initial distribution π⁰: Probability distribution at time 0.
+n-step transition: π⁽ⁿ⁾ = π⁽⁰⁾ · Pⁿ
+
+Q: What are the characteristics of a Markov chain?
+1. Markov property: Future depends only on present. Defining characteristic.
+2. Stationary transitions: pᵢⱼ doesn't change with time. Same matrix every step.
+3. Irreducibility: Every state reachable from every other state. Chain can't get trapped.
+4. Aperiodicity: Chain can return to state at irregular intervals — not just multiples of fixed period.
+5. Recurrence: Probability of eventually returning to state = 1.
+6. Transience: Positive probability of never returning to state.
+7. Ergodicity: Irreducible + aperiodic = ergodic. Has unique stationary distribution π.
+
+Q: How do you compute multi-step forecasts?
+One-step forecast: π⁽¹⁾ = π⁽⁰⁾ × P
+Two-step forecast: π⁽²⁾ = π⁽¹⁾ × P
+Matrix multiplication rule:
+[πS⁽ⁿ⁺¹⁾, πR⁽ⁿ⁺¹⁾] = [πS⁽ⁿ⁾×0.8 + πR⁽ⁿ⁾×0.4, πS⁽ⁿ⁾×0.2 + πR⁽ⁿ⁾×0.6]
+Full sunny/rainy solution (rains on Day 0):
+π⁽⁰⁾ = [0, 1]
+Day 1: [0×0.8 + 1×0.4, 0×0.2 + 1×0.6] = [0.4, 0.6]
+Day 2: [0.4×0.8 + 0.6×0.4, 0.4×0.2 + 0.6×0.6] = [0.56, 0.44]
+
+Q: What is steady-state distribution?
+The long-run probability of being in each state. Once reached, the chain stays there regardless of starting state.
+Solve: πP = π and Σπᵢ = 1
+General formula for 2-state chain:
+π₁ = p₂₁/(p₁₂ + p₂₁)
+π₂ = p₁₂/(p₁₂ + p₂₁)
+For sunny/rainy (P = [[0.8, 0.2],[0.4, 0.6]]):
+0.8πS + 0.4πR = πS → 0.2πS = 0.4πR → πS = 2πR
+πS + πR = 1 → 2πR + πR = 1 → πR = 1/3, πS = 2/3
+In the long run: sunny 66.7% of time, rainy 33.3% of time.
+
+Q: What is a counting process?
+A stochastic process {N(t), t ≥ 0} that counts number of events up to time t.
+
+N(0) = 0
+N(t) is non-decreasing
+Takes non-negative integer values
+
+
+Q: What is a Binomial process?
+Discrete-time counting process where time is divided into small frames of length Δ. In each frame, an arrival occurs with probability p = λΔ, independently.
+Frame size for given arrival probability p:
+Δ = p/λ
+Number of arrivals in n frames ~ Binomial(n, p)
+
+Q: What is a Poisson process?
+Continuous-time counting process where events occur at constant rate λ.
+Number of events in time t: N(t) ~ Poisson(λt)
+P(N(t) = k) = e⁻λt(λt)ᵏ/k!
+Inter-arrival time X ~ Exponential(λ):
+E(X) = 1/λ
+Var(X) = 1/λ²
+Memoryless property:
+P(X > s+t | X > s) = P(X > t)
+Remaining wait time is independent of how long you've already waited.
+
+Q: What is queuing theory?
+Mathematical study of waiting lines. Models how customers arrive, wait, and get served. Used to analyze and optimize banks, hospitals, call centers, computer servers.
+
+Q: What are the main components of a queuing system?
+1. Arrival process: How customers arrive. Usually Poisson with rate λ (arrivals per unit time). Inter-arrival times ~ Exponential.
+2. Service mechanism: Number of servers and service time distribution. Usually exponential with rate μ. μ = average customers served per unit time.
+3. Queue discipline: Rule for serving customers.
+
+FCFS — First Come First Served (most common)
+LCFS — Last Come First Served
+Priority queuing — urgent first
+Random selection
+
+4. System capacity: Maximum customers allowed in system. Finite or infinite.
+5. Number of servers: Single (M/M/1) or multiple (M/M/c).
+6. Calling population: Total population of potential customers. Finite or infinite.
+
+Q: What is Little's Law?
+L = λW and Lq = λWq
+Connects average number in system to average time in system.
+
+L = average number in system
+Lq = average number in queue
+W = average time in system
+Wq = average waiting time in queue
+λ = arrival rate
+
+Universally applicable to ANY stable queuing system regardless of distributions. If you know two quantities, you can find the other two.
+
+Q: What is M/M/1 queuing system? How do you evaluate its performance?
+Single server queue with Poisson arrivals (rate λ) and exponential service (rate μ). One server only.
+Stability condition: ρ = λ/μ < 1 (server must be faster than arrivals)
+All performance measures:
+Traffic intensity: ρ = λ/μ
+P(system empty): P₀ = 1 − ρ
+P(n customers in system): Pₙ = (1−ρ)ρⁿ
+P(queue length > n): P(L > n) = ρⁿ⁺¹
+Average in system: L = ρ/(1−ρ) = λ/(μ−λ)
+Average in queue: Lq = ρ²/(1−ρ) = λ²/[μ(μ−λ)]
+Average time in system: W = 1/(μ−λ)
+Average waiting time in queue: Wq = λ/[μ(μ−λ)]
+Verify with Little's Law: L = λW and Lq = λWq ✓
+Also: L = Lq + ρ
+
+Q: When is a queuing system stable?
+When ρ = λ/μ < 1. This means the service rate is faster than the arrival rate. If ρ ≥ 1, the queue grows indefinitely — the system never clears.
+
+Q: What is the Bernoulli single server queuing process?
+A discrete-time queuing model where:
+
+Arrivals follow Bernoulli process — in each time slot, one arrival with probability λ or no arrival with probability 1−λ
+Service follows Bernoulli process — service completed in each slot with probability μ or not with probability 1−μ
+Maximum one arrival per slot
+
+Used for modeling computer networks and digital communication systems.
+
+
+WHEN THEY SHOW YOU A FORMULA AND ASK WHAT IT IS
+
+H = [12/N(N+1)] × Σ(Rⱼ²/nⱼ) − 3(N+1)
+→ Kruskal-Wallis H statistic. Non-parametric test for 3+ groups.
+χ² = Σ(O−E)²/E
+→ Chi-square test statistic. Tests independence of categorical variables.
+t = d̄/(Sd/√n)
+→ Paired t-test. Tests mean difference in matched pairs.
+Z = (p̂−p₀)/√[p₀(1−p₀)/n]
+→ One-sample Z-test for proportion.
+F = MSR/MSE
+→ F-test for overall significance of regression model.
+R² = SSR/SST
+→ Coefficient of multiple determination. % variation explained.
+R²adj = 1 − [(1−R²)(n−1)/(n−k−1)]
+→ Adjusted R². Penalizes for unnecessary predictors.
+Se = √[SSE/(n−k−1)]
+→ Standard error of estimate in regression.
+π⁽ⁿ⁾ = π⁽⁰⁾ · Pⁿ
+→ n-step state distribution in Markov chain.
+πP = π, Σπᵢ = 1
+→ Steady-state distribution equations for Markov chain.
+L = ρ/(1−ρ)
+→ Average number of customers in M/M/1 queuing system.
+Lq = ρ²/(1−ρ)
+→ Average number in queue in M/M/1 system.
+W = 1/(μ−λ)
+→ Average time spent in M/M/1 system.
+L = λW
+→ Little's Law.
+ρ = λ/μ
+→ Traffic intensity / server utilization in queuing.
+Sp = √[(n₁−1)s₁²+(n₂−1)s₂²/(n₁+n₂−2)]
+→ Pooled standard deviation for two-sample t-test.
+U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁
+→ Mann-Whitney U statistic for group 1.
+μr = 2n₁n₂/(n₁+n₂) + 1
+→ Expected number of runs in Runs test.
+n = (Z(α/2)·σ/E)²
+→ Sample size determination for estimating mean.
+
+QUICK FIRE — ONE LINE ANSWERS
+
+What is SSE? Sum of squares due to error — unexplained variation.
+What is SSR? Sum of squares due to regression — explained variation.
+What is SST? Total sum of squares = SSR + SSE.
+What is MSE? Mean square error = SSE/(n−k−1). Estimate of σ².
+What is df? Degrees of freedom — number of independent pieces of information.
+What is a nuisance variable? A variable that affects the response but is not of primary interest. Controlled by blocking.
+What is blocking? Grouping similar experimental units together to reduce variation.
+What is replication? Repeating the experiment to estimate experimental error.
+What is randomization? Randomly assigning treatments to eliminate bias.
+What is a run? A consecutive sequence of the same type of observation in a sequence.
+What is traffic intensity? ρ = λ/μ. Ratio of arrival rate to service rate. Must be < 1 for stability.
+What is the memoryless property? Remaining waiting time is independent of how long you've already waited. Property of exponential distribution and Poisson process.
+What is an ergodic chain? A Markov chain that is irreducible and aperiodic. Has a unique steady-state distribution.
+What is a stationary distribution? Long-run probability distribution of Markov chain states. Satisfies πP = π.
+What is the finite population correction factor? √[(N−n)/(N−1)]. Applied to SE when sampling without replacement from a finite population.
+What is homoscedasticity? Equal variance of error terms across all levels of X. Assumption of regression and ANOVA.
+What is heteroscedasticity? Unequal variance of error terms. Violates regression assumption.
+What is the pooled proportion? p̂ = (x₁+x₂)/(n₁+n₂). Used in two-proportion Z-test under H₀: p₁=p₂.
+What is the pooled SD? Sp = √[(n₁−1)s₁²+(n₂−1)s₂²/(n₁+n₂−2)]. Used in two-sample t-test when variances are equal.
+What is the correction factor in ANOVA? CF = T²/N. Grand total squared divided by total observations. Subtracted from all SS computations.
+What does reject H₀ mean? There is sufficient evidence at the given significance level to conclude that H₁ is true.
+What does fail to reject H₀ mean? There is not sufficient evidence to conclude H₁. Does NOT mean H₀ is proven true.
+
+LAST MINUTE — READ THIS ONCE
+Most likely first question: What is MLR? What does b₁ mean?
+Most likely Markov question: Set up transition matrix and compute 2-step forecast.
+Most likely ANOVA question: What is LSD? Why can't p be less than 3?
+Most likely queuing question: What is M/M/1? Give the formula for L or Lq.
+Most likely non-parametric question: Difference between parametric and non-parametric. When do you use Kruskal-Wallis?
+Key numbers to remember:
+
+Z = 1.96 for 95%, Z = 2.576 for 99%
+Sunny/rainy steady state: πS = 2/3, πR = 1/3
+LSD error df = (p−1)(p−2)
+RBD error df = (b−1)(k−1)
+CRD error df = N−k
+ρ must be < 1 for stable queue
